@@ -5,7 +5,9 @@ $(document).ready(function(){
     $(".film").remove();
     var nome = $("#inserisci").val();
     // console.log(nome);
-    ricerca(nome);
+    if (nome) {
+      ricerca(nome);
+    }
     $('#inserisci').val('');
   })
 })
