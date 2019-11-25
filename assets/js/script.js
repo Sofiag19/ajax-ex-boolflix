@@ -8,6 +8,8 @@ $(document).ready(function(){
 })
 
 function ricerca(inserimento){
+  var copiaTempl = $("#hb-film").html();
+  var templReady = Handlebars.compile(copiaTempl);
   $.ajax({
     url: "https://api.themoviedb.org/3/search/movie",
     method:'GET',
@@ -28,7 +30,9 @@ function ricerca(inserimento){
         // console.log(lingua);
         var voto = risposta[i].vote_average;
         // console.log(voto);
-        $("#lista_film").append("<li>"+"Titolo: "+titolo+"   Titolo Originale: "+titoloOriginale+"   Lingua: "+lingua+"   Rate: "+voto+"</li>");
+        var createObj = {titolo: titolo, titoloOriginale: titoloOriginale, lingua: lingua, voto: voto};
+        var createEl = templReady(createObj);
+        $("#lista_film").append(createEl);
       }
     },
     error: function(){
