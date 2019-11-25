@@ -5,6 +5,7 @@ $(document).ready(function(){
     $(".film").remove();
     var nome = $("#inserisci").val();
     // console.log(nome);
+    // CONTROLLO CHE NOME ABBIA UN VALORE
     if (nome) {
       ricerca(nome);
     }
