@@ -30,8 +30,12 @@ $(document).ready(function(){
       success: function(films){
         // console.log(films);
         var risposta = films.results;
-        // console.log(risposta);
-         datiFilm(risposta);
+        console.log(risposta);
+        datiFilm(risposta);
+        // IN CASO DI RITORNO DI ARRAY VUOTO
+        if (risposta.length == 0) {
+         alert("nessuna corrispondenza..sorry!");
+        }
       },
       error: function(){
         alert("si è verificato un errore!")
