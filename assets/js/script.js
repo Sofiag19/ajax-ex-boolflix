@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
   // al click sul button controllo il valore dell'input con il titolo del film
   $("#find").click(function(){
@@ -8,9 +9,14 @@ $(document).ready(function(){
   })
 })
 
-// FUNZIONI
+// ********************************************************************************
+// ***********************************FUNZIONI************************************
+// ********************************************************************************
 
-  // funzione per la chiamata e ricerca elementi
+
+  // ******************************************************************************
+  // ***************FUNZIONE PER LA CHIAMATA E RICERCA ELEMENTI*******************
+  // ******************************************************************************
   function ricerca(inserimento){
 
     $.ajax({
@@ -33,7 +39,10 @@ $(document).ready(function(){
 
   }
 
-  // funzione per la stampa dei dati dei film
+
+  // ******************************************************************************
+  // ******************FUNZIONE PER LA STAMPA DEI DATI DEI FILM********************
+  // ******************************************************************************
   function datiFilm(elenco){
     var copiaTempl = $("#hb-film").html();
     var templReady = Handlebars.compile(copiaTempl);
