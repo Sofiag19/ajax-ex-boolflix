@@ -2,6 +2,7 @@
 $(document).ready(function(){
   // al click sul button controllo il valore dell'input con il titolo del film
   $("#find").click(function(){
+    $(".film").remove();
     var nome = $("#inserisci").val();
     // console.log(nome);
     ricerca(nome);
