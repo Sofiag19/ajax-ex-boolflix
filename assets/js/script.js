@@ -27,8 +27,9 @@ $(document).ready(function(){
       url: "https://api.themoviedb.org/3/search/movie",
       method:'GET',
       data: {
-        'api_key':"b7363eced32d78c930013064eab20f51",
-        'query': inserimento
+        api_key:"b7363eced32d78c930013064eab20f51",
+        query: inserimento,
+        languages: 'it-IT'
       },
       success: function(films){
         // console.log(films);
@@ -55,15 +56,13 @@ $(document).ready(function(){
     var copiaTempl = $("#hb-film").html();
     var templReady = Handlebars.compile(copiaTempl);
     for (var i = 0; i < elenco.length; i++) {
-      var titolo = elenco[i].title;
-      console.log(titolo);
-      var titoloOriginale = elenco[i].original_title;
-      // console.log(titoloOriginale);
-      var lingua = elenco[i].original_language;
-      // console.log(lingua);
-      var voto = elenco[i].vote_average;
       // console.log(voto);
-      var createObj = {titolo: titolo, titoloOriginale: titoloOriginale, lingua: lingua, voto: voto};
+      var createObj = {
+          titolo: elenco[i].title,
+          titoloOriginale: elenco[i].original_title,
+          lingua: elenco[i].original_language,
+          voto: elenco[i].vote_average
+      };
       var createEl = templReady(createObj);
       $("#lista_film").append(createEl);
     }
