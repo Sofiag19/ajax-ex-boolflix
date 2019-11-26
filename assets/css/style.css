@@ -124,11 +124,17 @@ body {
     list-style-type: none;
   }
 
-
+    .descrizione li {
+      line-height: 30px;
+    }
 
     .flag {
       width: 19px;
       height: 13px;
+    }
+
+    .fa-star {
+      color: yellow;
     }
 
   .active {
