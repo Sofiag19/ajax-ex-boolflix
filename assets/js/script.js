@@ -64,7 +64,7 @@ $(document).ready(function(){
       data: {
         api_key:"b7363eced32d78c930013064eab20f51",
         query: inserimento,
-        languages: 'it-IT'
+        language: 'it-IT'
       },
       success: function(films){
         var rispostaFilm = films.results;
@@ -85,7 +85,7 @@ $(document).ready(function(){
       data: {
         api_key:"b7363eced32d78c930013064eab20f51",
         query: inserimento,
-        languages: 'it-IT'
+        language: 'it-IT'
       },
       success: function(tv){
         var rispostaTv = tv.results;
