@@ -8,10 +8,33 @@
   </head>
   <body>
 
-    <input id="inserisci" type="text" name="" value="" placeholder="inserisci il nome del film">
-    <button id="find" type="button" name="button">Cerca</button>
-    <div id="lista_film">
+    <div id="wrapper">
+      <header>
+        <div id="nav_visible">
+          <div id="nav_visible_sx">
+            <i class="fas fa-bars"></i>
+            <div id="logo_header">
+              <img src="assets\img\logo.png" alt="">
+            </div>
+          </div>
+          <div id="nav_visible_dx">
+            <i id="show_nav_invisible" class="fas fa-search"></i>
+            <i class="fas fa-ellipsis-h"></i>
+          </div>
+        </div>
+        <div id="nav_invisible">
+          <i id="hide_nav_invisible" class="fas fa-arrow-left"></i>
+          <div id="campo_ricerca">
+            <i id="find" class="fas fa-search"></i>
+            <input id="inserisci" type="text" placeholder="Cerca">
+          </div>
+        </div>
+      </header>
+      <main>
+        <div id="lista_film">
 
+        </div>
+      </main>
     </div>
 
     <!-- template con handlebars -->

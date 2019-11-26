@@ -1,5 +1,15 @@
 
 $(document).ready(function(){
+
+  $("#show_nav_invisible").click(function (){
+    $("#nav_visible").hide();
+    $("#nav_invisible").css("visibility","visible");
+  })
+
+  $("#hide_nav_invisible").click(function(){
+    $("#nav_visible").show();
+    $("#nav_invisible").css("visibility","hidden");
+  })
   // al click sul button controllo il valore dell'input con il titolo del film
   $("#find").click(function(){
     $(".film").remove();
@@ -166,7 +176,7 @@ $(document).ready(function(){
     var grandezzaPoster = "w154";
     var urlApiImg = filmSerieTv.poster_path;
     if (urlApiImg) {
-      var immaginePoster = "<img src='"+ urlBasePoster + grandezzaPoster + urlApiImg +"'>";
+      var immaginePoster = "<img class='poster' src='"+ urlBasePoster + grandezzaPoster + urlApiImg +"'>";
     } else {
       var immaginePoster = "Non disponibile";
     }

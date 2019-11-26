@@ -1,6 +1,8 @@
-.flag {
-  width: 19px;
-  height: 13px;
+/* generali */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -10,4 +12,88 @@
 
 body {
   font-family: netflixfont;
+  background-color: black;
+  color: white;
 }
+
+/* wrapper */
+  /* header */
+    /* nov visible */
+    #nav_visible {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      font-size: 26px;
+    }
+
+      #nav_visible_sx {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+        #nav_visible_sx i {
+          margin-right: 30px;
+        }
+
+        #logo_header img{
+          color: red;
+          width: 130px;
+        }
+
+      #nav_visible_dx {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+        #show_nav_invisible {
+          margin-right: 30px;
+        }
+
+    /* nav invisible */
+    #nav_invisible {
+      visibility: hidden;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 10px 20px;
+      font-size: 26px;
+    }
+
+    #hide_nav_invisible {
+      flex-basis: calc(100% / 3);
+    }
+
+    #campo_ricerca {
+      flex-basis: calc(100% / 3);
+      display: flex;
+      align-items: center;
+    }
+
+      #inserisci {
+        height: 28px;
+        width: 250px;
+        margin-left: 15px;
+      }
+
+  /* main */
+  #lista_film {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 30px 20px;
+
+  }
+  .film {
+    margin-bottom: 30px;
+    flex-basis: calc(100%/6);
+    list-style-type: none;
+  }
+
+  .flag {
+    width: 19px;
+    height: 13px;
+  }
