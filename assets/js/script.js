@@ -17,7 +17,6 @@ $(document).ready(function(){
 // ***********************************FUNZIONI********************************
 // ***************************************************************************
 
-
   // **************************************************************************
   // ***************FUNZIONE PER LA CHIAMATA E RICERCA ELEMENTI***************
   // *************************************************************************
@@ -32,9 +31,7 @@ $(document).ready(function(){
         languages: 'it-IT'
       },
       success: function(films){
-        // console.log(films);
         var rispostaFilm = films.results;
-        // console.log(rispostaFilm);
         datiFilm(rispostaFilm);
         // IN CASO DI RITORNO DI ARRAY VUOTO
         if (rispostaFilm.length == 0) {
@@ -55,9 +52,7 @@ $(document).ready(function(){
         languages: 'it-IT'
       },
       success: function(tv){
-        // console.log(tv);
         var rispostaTv = tv.results;
-        // console.log(rispostaTv);
         datiSerieTv(rispostaTv);
         // IN CASO DI RITORNO DI ARRAY VUOTO
         if (rispostaTv.length == 0) {
@@ -78,12 +73,11 @@ $(document).ready(function(){
     var copiaTempl = $("#hb-film").html();
     var templReady = Handlebars.compile(copiaTempl);
     for (var i = 0; i < elenco.length; i++) {
-      // console.log(voto);
       var stelle = divisioneStelline(elenco[i].vote_average);
       var iconeStelle = stampaStelle(stelle);
       var flag = stampaBandiera(elenco[i].original_language);
-      // console.log(iconeStelle);
       var createObj = {
+          poster: poster(elenco[i]),
           titolo: elenco[i].title,
           titoloOriginale: elenco[i].original_title,
           lingua: flag,
@@ -103,12 +97,11 @@ $(document).ready(function(){
     var copiaTempl = $("#hb-film").html();
     var templReady = Handlebars.compile(copiaTempl);
     for (var i = 0; i < elenco.length; i++) {
-      // console.log(voto);
       var stelle = divisioneStelline(elenco[i].vote_average);
       var iconeStelle = stampaStelle(stelle);
       var flag = stampaBandiera(elenco[i].original_language);
-      // console.log(iconeStelle);
       var createObj = {
+          poster: poster(elenco[i]),
           titolo: elenco[i].name,
           titoloOriginale: elenco[i].original_name,
           lingua: flag,
@@ -162,4 +155,20 @@ $(document).ready(function(){
       var bandiera = lang;
     }
     return bandiera
+  }
+
+  // ************************************************************************
+  // **************FUNZIONE GENERAZIONE IMMAGINE POSTER**********************
+  // ***********************************************************************
+
+  function poster(filmSerieTv){
+    var urlBasePoster = "https://image.tmdb.org/t/p/";
+    var grandezzaPoster = "w154";
+    var urlApiImg = filmSerieTv.poster_path;
+    if (urlApiImg) {
+      var immaginePoster = "<img src='"+ urlBasePoster + grandezzaPoster + urlApiImg +"'>";
+    } else {
+      var immaginePoster = "Non disponibile";
+    }
+    return immaginePoster
   }
