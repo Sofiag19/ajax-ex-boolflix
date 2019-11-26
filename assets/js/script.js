@@ -118,7 +118,8 @@ $(document).ready(function(){
           lingua: flag,
           voto: elenco[i].vote_average,
           stelle: stelle,
-          iconestelle: iconeStelle
+          iconestelle: iconeStelle,
+          overview: elenco[i].overview
       };
       var createEl = templReady(createObj);
       $("#lista_film").append(createEl);
@@ -142,7 +143,8 @@ $(document).ready(function(){
           lingua: flag,
           voto: elenco[i].vote_average,
           stelle: stelle,
-          iconestelle: iconeStelle
+          iconestelle: iconeStelle,
+          overview: elenco[i].overview
       };
       var createEl = templReady(createObj);
       $("#lista_film").append(createEl);
