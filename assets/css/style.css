@@ -83,8 +83,6 @@ body {
   /* main */
   #lista_film {
     display: flex;
-    /* justify-content: space-around;
-    align-items: flex-start; */
     flex-wrap: wrap;
     padding: 30px 20px;
 
@@ -94,6 +92,12 @@ body {
     margin-right: 30px;
     width: 154px;
     height: 236px;
+    overflow: auto;
+  }
+
+  .film::-webkit-scrollbar {
+    width: 0px;
+    background-color: transparent;
   }
 
   .anteprima {
@@ -103,27 +107,29 @@ body {
     position: relative;
   }
 
-  .poster {
-    width: 154px;
-    height: 236px;
-  }
+    .poster {
+      width: 154px;
+      height: 236px;
+    }
 
-  .anteprimaNon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
+    .anteprimaNon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
 
   .descrizione {
     display: none;
     list-style-type: none;
   }
 
-  .flag {
-    width: 19px;
-    height: 13px;
-  }
+
+
+    .flag {
+      width: 19px;
+      height: 13px;
+    }
 
   .active {
     display: block;
