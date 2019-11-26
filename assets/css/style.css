@@ -140,3 +140,9 @@ body {
   .active {
     display: block;
   }
+
+
+/* media query */
+@media all and (max-width: 500px) {
+  
+}
