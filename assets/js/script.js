@@ -33,11 +33,34 @@ $(document).ready(function(){
       },
       success: function(films){
         // console.log(films);
-        var risposta = films.results;
-        console.log(risposta);
-        datiFilm(risposta);
+        var rispostaFilm = films.results;
+        // console.log(rispostaFilm);
+        datiFilm(rispostaFilm);
         // IN CASO DI RITORNO DI ARRAY VUOTO
-        if (risposta.length == 0) {
+        if (rispostaFilm.length == 0) {
+         alert("nessuna corrispondenza..sorry!");
+        }
+      },
+      error: function(){
+        alert("si è verificato un errore!")
+      }
+    })
+
+    $.ajax({
+      url: "https://api.themoviedb.org/3/search/tv",
+      method:'GET',
+      data: {
+        api_key:"b7363eced32d78c930013064eab20f51",
+        query: inserimento,
+        languages: 'it-IT'
+      },
+      success: function(tv){
+        // console.log(tv);
+        var rispostaTv = tv.results;
+        // console.log(rispostaTv);
+        datiSerieTv(rispostaTv);
+        // IN CASO DI RITORNO DI ARRAY VUOTO
+        if (rispostaTv.length == 0) {
          alert("nessuna corrispondenza..sorry!");
         }
       },
@@ -49,7 +72,7 @@ $(document).ready(function(){
   }
 
   // **************************************************************************
-  // ******************FUNZIONE PER LA STAMPA DEI DATI DEI FILM****************
+  // **************FUNZIONE PER LA STAMPA DEI DATI DEI FILM******************
   // **************************************************************************
   function datiFilm(elenco){
     var copiaTempl = $("#hb-film").html();
@@ -59,10 +82,35 @@ $(document).ready(function(){
       var stelle = divisioneStelline(elenco[i].vote_average);
       var iconeStelle = stampaStelle(stelle);
       var flag = stampaBandiera(elenco[i].original_language);
-      console.log(iconeStelle);
+      // console.log(iconeStelle);
       var createObj = {
           titolo: elenco[i].title,
           titoloOriginale: elenco[i].original_title,
+          lingua: flag,
+          voto: elenco[i].vote_average,
+          stelle: stelle,
+          iconestelle: iconeStelle
+      };
+      var createEl = templReady(createObj);
+      $("#lista_film").append(createEl);
+    }
+  }
+
+  // **************************************************************************
+  // ***********FUNZIONE PER LA STAMPA DEI DATI DELLE SERIE TV*****************
+  // **************************************************************************
+  function datiSerieTv(elenco){
+    var copiaTempl = $("#hb-film").html();
+    var templReady = Handlebars.compile(copiaTempl);
+    for (var i = 0; i < elenco.length; i++) {
+      // console.log(voto);
+      var stelle = divisioneStelline(elenco[i].vote_average);
+      var iconeStelle = stampaStelle(stelle);
+      var flag = stampaBandiera(elenco[i].original_language);
+      // console.log(iconeStelle);
+      var createObj = {
+          titolo: elenco[i].name,
+          titoloOriginale: elenco[i].original_name,
           lingua: flag,
           voto: elenco[i].vote_average,
           stelle: stelle,
