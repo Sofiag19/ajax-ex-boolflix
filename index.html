@@ -39,14 +39,15 @@
 
     <!-- template con handlebars -->
     <script id="hb-film" type="text/x-handlebars-template">
-      <ul class="film">
-        <li>{{{poster}}}</li>
-        <li>Titolo : {{titolo}}</li>
-        <li>Titolo originale : {{titoloOriginale}}</li>
-        <li>Lingua: {{{lingua}}}</li>
-        <li>Voto: {{voto}}</li>
-        <li>{{{ iconestelle }}} {{stelle}} stelle </li>
-      </ul>
+      <div class="film">
+        <div class="poster">{{{poster}}}</div>
+        <ul class="descrizione">
+          <li>Titolo : {{titolo}}</li>
+          <li>Titolo originale : {{titoloOriginale}}</li>
+          <li>Lingua: {{{lingua}}}</li>
+          <li>{{{ iconestelle }}} {{voto}}</li>
+        </ul>
+      </div>
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

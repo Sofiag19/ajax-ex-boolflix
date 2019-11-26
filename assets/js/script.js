@@ -1,15 +1,24 @@
 
 $(document).ready(function(){
 
+  // al click del cerca faccio comparire l'imput per la ricerca
   $("#show_nav_invisible").click(function (){
     $("#nav_visible").hide();
     $("#nav_invisible").css("visibility","visible");
   })
 
+  // al click sulla freccia faccio ricomparire la nav iniziale
   $("#hide_nav_invisible").click(function(){
     $("#nav_visible").show();
     $("#nav_invisible").css("visibility","hidden");
   })
+
+  // al passaggio sopra il poster faccio scomparire il poster e comparire la descrizione
+  // $("#lista_film").on("mouseover",".poster", function(){
+  //   $(this).hide();
+  //   $(this).sibling(".descrizione").show();
+  //
+  // })
   // al click sul button controllo il valore dell'input con il titolo del film
   $("#find").click(function(){
     $(".film").remove();
