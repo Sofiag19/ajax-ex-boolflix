@@ -57,13 +57,41 @@ $(document).ready(function(){
     var templReady = Handlebars.compile(copiaTempl);
     for (var i = 0; i < elenco.length; i++) {
       // console.log(voto);
+      var stelle = divisioneStelline(elenco[i].vote_average);
+      var iconeStelle = stampaStelle(stelle);
+      console.log(iconeStelle);
       var createObj = {
           titolo: elenco[i].title,
           titoloOriginale: elenco[i].original_title,
           lingua: elenco[i].original_language,
-          voto: elenco[i].vote_average
+          voto: elenco[i].vote_average,
+          stelle: stelle,
+          iconestelle: iconeStelle
       };
       var createEl = templReady(createObj);
       $("#lista_film").append(createEl);
     }
+  }
+
+  // ********************************************************************************************************************
+  // *******************************FUNZIONE DIVISIONE (/2) E ARROTONDAMENTO VOTO***************************************
+   // *****************************************************************************************************************
+  function divisioneStelline(votoNumero) {
+
+    return risultato = Math.round(votoNumero/2);
+  }
+
+  // stampa icone Stelle
+  function stampaStelle(voto){
+
+    var totaleStelle = "";
+    for (var i = 0; i < 5; i++) {
+      if (i<voto) {
+        totaleStelle += '<i class="fas fa-star"></i>';
+      }
+      else {
+        totaleStelle += '<i class="far fa-star"></i>';
+      }
+    }
+    return totaleStelle
   }
