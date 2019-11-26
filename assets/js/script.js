@@ -13,14 +13,14 @@ $(document).ready(function(){
   })
 })
 
-// ********************************************************************************
-// ***********************************FUNZIONI************************************
-// ********************************************************************************
+// ****************************************************************************
+// ***********************************FUNZIONI********************************
+// ***************************************************************************
 
 
-  // ******************************************************************************
-  // ***************FUNZIONE PER LA CHIAMATA E RICERCA ELEMENTI*******************
-  // ******************************************************************************
+  // **************************************************************************
+  // ***************FUNZIONE PER LA CHIAMATA E RICERCA ELEMENTI***************
+  // *************************************************************************
   function ricerca(inserimento){
 
     $.ajax({
@@ -48,10 +48,9 @@ $(document).ready(function(){
 
   }
 
-
-  // ******************************************************************************
-  // ******************FUNZIONE PER LA STAMPA DEI DATI DEI FILM********************
-  // ******************************************************************************
+  // **************************************************************************
+  // ******************FUNZIONE PER LA STAMPA DEI DATI DEI FILM****************
+  // **************************************************************************
   function datiFilm(elenco){
     var copiaTempl = $("#hb-film").html();
     var templReady = Handlebars.compile(copiaTempl);
@@ -59,12 +58,12 @@ $(document).ready(function(){
       // console.log(voto);
       var stelle = divisioneStelline(elenco[i].vote_average);
       var iconeStelle = stampaStelle(stelle);
-      // var iconeStelleEscape = Handlebars.SafeString(iconeStelle);;
+      var flag = stampaBandiera(elenco[i].original_language);
       console.log(iconeStelle);
       var createObj = {
           titolo: elenco[i].title,
           titoloOriginale: elenco[i].original_title,
-          lingua: elenco[i].original_language,
+          lingua: flag,
           voto: elenco[i].vote_average,
           stelle: stelle,
           iconestelle: iconeStelle
@@ -74,15 +73,17 @@ $(document).ready(function(){
     }
   }
 
-  // ********************************************************************************************************************
-  // *******************************FUNZIONE DIVISIONE (/2) E ARROTONDAMENTO VOTO***************************************
-   // *****************************************************************************************************************
+  // **************************************************************************
+  // **************FUNZIONE DIVISIONE (/2) E ARROTONDAMENTO VOTO**************
+   // ************************************************************************
   function divisioneStelline(votoNumero) {
 
     return risultato = Math.round(votoNumero/2);
   }
 
-  // stampa icone Stelle
+  // *************************************************************************
+  // *****************FUNZIONE STAMPA ICONE STELLE***************************
+  // ***********************************************************************
   function stampaStelle(voto){
 
     var totaleStelle = "";
@@ -95,4 +96,22 @@ $(document).ready(function(){
       }
     }
     return totaleStelle
+  }
+
+  // *************************************************************************
+  // **********************FUNZIONE STAMPA BANDIERA***************************
+  // *************************************************************************
+
+  function stampaBandiera(lang) {
+
+    if (lang == "it") {
+      var bandiera = "<img class='flag' src='assets/img/italia.png' alt='italian flag'>"
+    } else if (lang == "en") {
+      var bandiera = "<img class='flag' src='assets/img/uk.jpeg' alt='english flag'>"
+    } else if (lang == "ja") {
+      var bandiera = "<img class='flag' src='assets/img/giappone.jpg' alt='japanese flag'>"
+    } else {
+      var bandiera = lang;
+    }
+    return bandiera
   }
