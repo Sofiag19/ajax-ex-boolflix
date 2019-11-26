@@ -14,27 +14,44 @@ $(document).ready(function(){
   })
 
   // al passaggio sopra il poster faccio scomparire il poster e comparire la descrizione
-  // $("#lista_film").on("mouseover",".poster", function(){
-  //   $(this).hide();
-  //   $(this).sibling(".descrizione").show();
-  //
-  // })
+  $("#lista_film").on("mouseover",".anteprima", function (){
+      $(".anteprima").addClass("active");
+      $(".descrizione").removeClass("active");
+      $(this).removeClass("active");
+      $(this).siblings().addClass("active");
+  });
+
   // al click sul button controllo il valore dell'input con il titolo del film
   $("#find").click(function(){
+    invioRicerca();
+  })
+
+  // init ricerca con invio
+  $("#inserisci").on('keypress',function(e) {
+    if(e.which == 13) {
+      invioRicerca();
+    }
+  })
+})
+
+
+
+// ****************************************************************************
+// ***********************************FUNZIONI********************************
+// ***************************************************************************
+
+  // *************************************************************************
+  // ***********************FUNZIONE INVIO RICERCA****************************
+  // *************************************************************************
+  function invioRicerca(){
     $(".film").remove();
     var nome = $("#inserisci").val();
-    // console.log(nome);
     // CONTROLLO CHE NOME ABBIA UN VALORE
     if (nome) {
       ricerca(nome);
     }
     $('#inserisci').val('');
-  })
-})
-
-// ****************************************************************************
-// ***********************************FUNZIONI********************************
-// ***************************************************************************
+  }
 
   // **************************************************************************
   // ***************FUNZIONE PER LA CHIAMATA E RICERCA ELEMENTI***************
@@ -82,7 +99,6 @@ $(document).ready(function(){
         alert("si è verificato un errore!")
       }
     })
-
   }
 
   // **************************************************************************
@@ -187,7 +203,7 @@ $(document).ready(function(){
     if (urlApiImg) {
       var immaginePoster = "<img class='poster' src='"+ urlBasePoster + grandezzaPoster + urlApiImg +"'>";
     } else {
-      var immaginePoster = "Non disponibile";
+      var immaginePoster = "<p class='anteprimaNon'>Anteprima non disponibile</p>";
     }
     return immaginePoster
   }
