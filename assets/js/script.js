@@ -59,6 +59,7 @@ $(document).ready(function(){
       // console.log(voto);
       var stelle = divisioneStelline(elenco[i].vote_average);
       var iconeStelle = stampaStelle(stelle);
+      // var iconeStelleEscape = Handlebars.SafeString(iconeStelle);;
       console.log(iconeStelle);
       var createObj = {
           titolo: elenco[i].title,

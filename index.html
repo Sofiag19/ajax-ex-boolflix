@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>BOOLFLIX</title>
   </head>
@@ -12,6 +13,8 @@
     <div id="lista_film">
 
     </div>
+
+
     <!-- template con handlebars -->
     <script id="hb-film" type="text/x-handlebars-template">
       <ul class="film">
@@ -19,7 +22,7 @@
         <li>Titolo originale : {{titoloOriginale}}</li>
         <li>Lingua: {{lingua}}</li>
         <li>Voto: {{voto}}</li>
-        <li>Stelle: {{stelle}} <span> {{ iconestelle }}</span></li>
+        <li>{{{ iconestelle }}} {{stelle}} stelle </li>
       </ul>
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.min.js"></script>
