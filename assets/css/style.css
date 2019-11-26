@@ -2,3 +2,12 @@
   width: 19px;
   height: 13px;
 }
+
+@font-face {
+  font-family: netflixfont;
+  src: url(BebasNeue.otf);
+}
+
+body {
+  font-family: netflixfont;
+}
