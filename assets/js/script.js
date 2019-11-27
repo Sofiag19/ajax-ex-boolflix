@@ -2,9 +2,15 @@
 $(document).ready(function(){
 
   // al click del cerca faccio comparire l'imput per la ricerca
-  $("#show_nav_invisible").click(function (){
-    $("#nav_visible").hide();
-    $("#nav_invisible").css("visibility","visible");
+  // $("#show_nav_invisible").click(function (){
+  //   $("#nav_visible").hide();
+  //   $("#nav_invisible").css("visibility","visible");
+  // })
+  $("#show_nav_invisible").on({
+    click: function(){
+      $("#nav_visible").hide();
+      $("#nav_invisible").css("visibility","visible");
+    }
   })
 
   // al click sulla freccia faccio ricomparire la nav iniziale
