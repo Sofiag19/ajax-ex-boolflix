@@ -114,14 +114,8 @@ body {
     margin: 0 10px 30px;
     width: 154px;
     height: 236px;
-    overflow: auto;
     position: relative;
     box-shadow: 0px 0px 2px 1px grey;
-  }
-
-  .film::-webkit-scrollbar {
-    width: 0px;
-    background-color: transparent;
   }
 
   .anteprima {
@@ -150,7 +144,14 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 3px;
+    margin: 5px;
+    height: 226px;
+    overflow: auto;
+  }
+
+  .descrizione::-webkit-scrollbar {
+    width: 0px;
+    background-color: transparent;
   }
 
     .descrizione li {
