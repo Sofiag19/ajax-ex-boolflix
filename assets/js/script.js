@@ -111,8 +111,6 @@ $(document).ready(function(){
     var templReady = Handlebars.compile(copiaTempl);
     for (var i = 0; i < elenco.length; i++) {
       var stelle = divisioneStelline(elenco[i].vote_average);
-      var iconeStelle = stampaStelle(stelle);
-      var flag = stampaBandiera(elenco[i].original_language);
       var title_name, titolo_orig_name
       if (tipo == "film") {
         title_name = elenco[i].title;
@@ -125,10 +123,10 @@ $(document).ready(function(){
           poster: poster(elenco[i]),
           titolo: title_name,
           titoloOriginale: titolo_orig_name,
-          lingua: flag,
+          lingua: stampaBandiera(elenco[i].original_language),
           voto: elenco[i].vote_average,
           stelle: stelle,
-          iconestelle: iconeStelle,
+          iconestelle: stampaStelle(stelle),
           overview: elenco[i].overview
       };
       var createEl = templReady(createObj);
@@ -190,7 +188,7 @@ $(document).ready(function(){
     if (urlApiImg) {
       var immaginePoster = "<img class='poster' src='"+ urlBasePoster + grandezzaPoster + urlApiImg +"'>";
     } else {
-      var immaginePoster = "<p class='anteprimaNon'>Anteprima non disponibile</p>";
+      var immaginePoster = "<img class='anteprimaNon' src='assets/img/logo.png' alt=''>";
     }
     return immaginePoster
   }
