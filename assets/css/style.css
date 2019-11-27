@@ -94,6 +94,8 @@ body {
     width: 154px;
     height: 236px;
     overflow: auto;
+    position: relative;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,1);
   }
 
   .film::-webkit-scrollbar {
@@ -123,10 +125,19 @@ body {
   .descrizione {
     display: none;
     list-style-type: none;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
     .descrizione li {
       line-height: 30px;
+    }
+
+    .titolo_css {
+      color: red;
+      font-size: 20px;
+      text-align: center;
     }
 
     .flag {
@@ -140,4 +151,10 @@ body {
 
   .active {
     display: block;
+    z-index: 10;
+  }
+
+  .transparent {
+    opacity: 0.2;
+    z-index: -1;
   }

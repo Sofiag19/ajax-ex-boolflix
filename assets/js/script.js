@@ -15,9 +15,9 @@ $(document).ready(function(){
 
   // al passaggio sopra il poster faccio scomparire il poster e comparire la descrizione
   $("#lista_film").on("mouseover",".anteprima", function (){
-      $(".anteprima").addClass("active");
+      $(".anteprima").removeClass("transparent");
       $(".descrizione").removeClass("active");
-      $(this).removeClass("active");
+      $(this).addClass("transparent");
       $(this).siblings().addClass("active");
   });
 
@@ -68,7 +68,8 @@ $(document).ready(function(){
       },
       success: function(films){
         var rispostaFilm = films.results;
-        datiFilm(rispostaFilm);
+        // datiFilm(rispostaFilm);
+        dati("film", rispostaFilm)
         // IN CASO DI RITORNO DI ARRAY VUOTO
         if (rispostaFilm.length == 0) {
          alert("nessuna corrispondenza..sorry!");
@@ -89,7 +90,8 @@ $(document).ready(function(){
       },
       success: function(tv){
         var rispostaTv = tv.results;
-        datiSerieTv(rispostaTv);
+        // datiSerieTv(rispostaTv);
+        dati("serietv", rispostaTv)
         // IN CASO DI RITORNO DI ARRAY VUOTO
         if (rispostaTv.length == 0) {
          alert("nessuna corrispondenza..sorry!");
@@ -102,44 +104,27 @@ $(document).ready(function(){
   }
 
   // **************************************************************************
-  // **************FUNZIONE PER LA STAMPA DEI DATI DEI FILM******************
+  // ********FUNZIONE PER LA STAMPA DEI DATI DEI FILM O SERIE TV*************
   // **************************************************************************
-  function datiFilm(elenco){
+  function dati(tipo, elenco){
     var copiaTempl = $("#hb-film").html();
     var templReady = Handlebars.compile(copiaTempl);
     for (var i = 0; i < elenco.length; i++) {
       var stelle = divisioneStelline(elenco[i].vote_average);
       var iconeStelle = stampaStelle(stelle);
       var flag = stampaBandiera(elenco[i].original_language);
+      var title_name, titolo_orig_name
+      if (tipo == "film") {
+        title_name = elenco[i].title;
+        titolo_orig_name = elenco[i].original_title;
+      } else if (tipo == "serietv") {
+        title_name = elenco[i].name;
+        titolo_orig_name = elenco[i].original_name;
+      }
       var createObj = {
           poster: poster(elenco[i]),
-          titolo: elenco[i].title,
-          titoloOriginale: elenco[i].original_title,
-          lingua: flag,
-          voto: elenco[i].vote_average,
-          stelle: stelle,
-          iconestelle: iconeStelle,
-          overview: elenco[i].overview
-      };
-      var createEl = templReady(createObj);
-      $("#lista_film").append(createEl);
-    }
-  }
-
-  // **************************************************************************
-  // ***********FUNZIONE PER LA STAMPA DEI DATI DELLE SERIE TV*****************
-  // **************************************************************************
-  function datiSerieTv(elenco){
-    var copiaTempl = $("#hb-film").html();
-    var templReady = Handlebars.compile(copiaTempl);
-    for (var i = 0; i < elenco.length; i++) {
-      var stelle = divisioneStelline(elenco[i].vote_average);
-      var iconeStelle = stampaStelle(stelle);
-      var flag = stampaBandiera(elenco[i].original_language);
-      var createObj = {
-          poster: poster(elenco[i]),
-          titolo: elenco[i].name,
-          titoloOriginale: elenco[i].original_name,
+          titolo: title_name,
+          titoloOriginale: titolo_orig_name,
           lingua: flag,
           voto: elenco[i].vote_average,
           stelle: stelle,
