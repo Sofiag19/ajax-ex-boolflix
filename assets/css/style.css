@@ -20,6 +20,14 @@ body {
 
 /* wrapper */
   /* header */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 15px;
+  }
     /* nov visible */
     #nav_visible {
       display: flex;
@@ -81,6 +89,20 @@ body {
       }
 
   /* main */
+  main {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    height: calc(100vh - 60px);
+  }
+
+  main::-webkit-scrollbar {
+    width: 0px;
+    background-color: transparent;
+  }
+
   #lista_film {
     display: flex;
     justify-content: center;
@@ -89,8 +111,7 @@ body {
 
   }
   .film {
-    margin-bottom: 30px;
-    margin-right: 30px;
+    margin: 0 10px 30px;
     width: 154px;
     height: 236px;
     overflow: auto;
