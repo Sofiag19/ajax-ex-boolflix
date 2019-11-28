@@ -13,18 +13,6 @@ $(document).ready(function(){
     $("#container_nav_insivible").hide();
   })
 
-  // al click del cerca faccio comparire l'imput per la ricerca query 500
-  $("#bottom_search i").click(function (){
-    $("#intestazione").hide();
-    $("#contenitore_intestazione_invisibile").show();
-  })
-
-  // al click sulla freccia faccio ricomparire la nav iniziale query 500
-  $("#hide_intestazione_invisible").click(function(){
-    $("#intestazione").show();
-    $("#contenitore_intestazione_invisibile").hide();
-  })
-
   // al click su ham si apre menu TENDINA
   $(".fa-bars").click(function(){
     $("#container_menu_tendina").show();
@@ -44,6 +32,19 @@ $(document).ready(function(){
     if(e.which == 13) {
       invioRicerca($("#inserisci"));
     }
+  })
+
+  // QUERY 500
+  // al click del cerca faccio comparire l'imput per la ricerca - query 500
+  $("#bottom_search i").click(function (){
+    $("#intestazione").hide();
+    $("#contenitore_intestazione_invisibile").show();
+  })
+
+  // al click sulla freccia faccio ricomparire la nav iniziale - query 500
+  $("#hide_intestazione_invisible").click(function(){
+    $("#intestazione").show();
+    $("#contenitore_intestazione_invisibile").hide();
   })
 
   // invio ricerca con lente - query 500
@@ -77,7 +78,7 @@ $(document).ready(function(){
       ricerca(urlFilm, nome, "film");
       ricerca(urlSerietv, nome, "serietv")
     }
-    $('#inserisci').val('');
+    dove.val('');
   }
 
   // **************************************************************************
