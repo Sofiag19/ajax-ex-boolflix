@@ -146,6 +146,15 @@ body {
       }
 
   /* nav bottom */
+
+  #logo_header_nav {
+    text-align: center;
+  }
+
+  #logo_header_nav img {
+    height: 55px;
+  }
+  
   #bottom_nav_container{
     display: none;
     position: fixed;
