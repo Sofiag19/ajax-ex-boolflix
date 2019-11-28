@@ -25,7 +25,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    height: 50px;
     z-index: 15;
   }
     /* nov visible */
@@ -156,7 +156,7 @@ body {
   /* nav bottom */
   #tool_under500 {
     display: none;
-    height: 60px;
+    height: 50px;
     padding: 20px 10px;
     font-size: 26px;
   }
@@ -216,8 +216,8 @@ body {
 
   /* main */
   main {
-    margin-top: 60px;
-    height: calc(100vh - 60px);
+    margin-top: 50px;
+    height: calc(100vh - 50px - 60px);
     overflow-y: auto;
   }
 
