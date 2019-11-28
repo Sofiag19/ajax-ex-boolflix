@@ -46,10 +46,12 @@ $(document).ready(function(){
     }
   })
 
+  // invio ricerca con lente - query 500
   $("#find_min").click(function(){
     invioRicerca($("#inserisci_min"));
   })
 
+  // invio ricerca con invio - query 500
   $("#inserisci_min").on('keypress',function(e) {
     if(e.which == 13) {
       invioRicerca($("#inserisci_min"));
