@@ -21,7 +21,12 @@ body {
 /* wrapper */
   /* header */
   header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 60px;
+    z-index: 15;
   }
     /* nov visible */
     #nav_visible {
@@ -87,6 +92,17 @@ body {
       }
 
   /* main */
+  main {
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+
+  .main::-webkit-scrollbar {
+    width: 0px;
+    background-color: transparent;
+  }
+
   #lista_film {
     display: flex;
     justify-content: center;

@@ -63,7 +63,7 @@ $(document).ready(function(){
         var risposta = data.results;
         dati(tipo, risposta)
         // IN CASO DI RITORNO DI ARRAY VUOTO
-        if (rispostaFilm.length == 0) {
+        if (risposta.length == 0) {
          alert("nessuna corrispondenza..sorry!");
         }
       },
