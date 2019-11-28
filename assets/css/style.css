@@ -111,8 +111,7 @@ body {
 
   }
   .film {
-    margin-bottom: 30px;
-    margin-right: 30px;
+    margin: 0 15px 30px;
     width: 154px;
     height: 236px;
     position: relative;
