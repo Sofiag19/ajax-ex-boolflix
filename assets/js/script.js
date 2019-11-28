@@ -46,6 +46,7 @@ $(document).ready(function(){
   function invioRicerca(){
     $(".film").remove();
     var nome = $("#inserisci").val();
+    // VARI URL e type (film o serietv)
     // CONTROLLO CHE NOME ABBIA UN VALORE
     if (nome) {
       ricerca(nome);
@@ -56,7 +57,7 @@ $(document).ready(function(){
   // **************************************************************************
   // ***************FUNZIONE PER LA CHIAMATA E RICERCA ELEMENTI***************
   // *************************************************************************
-  function ricerca(inserimento){
+  function ricerca(url,inserimento,tipo){
 
     $.ajax({
       url: "https://api.themoviedb.org/3/search/movie",
@@ -69,7 +70,7 @@ $(document).ready(function(){
       success: function(films){
         var rispostaFilm = films.results;
         // datiFilm(rispostaFilm);
-        dati("film", rispostaFilm)
+        dati(tipo, rispostaFilm)
         // IN CASO DI RITORNO DI ARRAY VUOTO
         if (rispostaFilm.length == 0) {
          alert("nessuna corrispondenza..sorry!");
@@ -91,7 +92,7 @@ $(document).ready(function(){
       success: function(tv){
         var rispostaTv = tv.results;
         // datiSerieTv(rispostaTv);
-        dati("serietv", rispostaTv)
+        dati(tipo, rispostaTv)
         // IN CASO DI RITORNO DI ARRAY VUOTO
         if (rispostaTv.length == 0) {
          alert("nessuna corrispondenza..sorry!");
