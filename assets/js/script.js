@@ -13,14 +13,6 @@ $(document).ready(function(){
     $("#container_nav_insivible").hide();
   })
 
-  // al passaggio sopra il poster faccio scomparire il poster e comparire la descrizione
-  $("#lista_film").on("mouseover",".anteprima", function (){
-      $(".anteprima").removeClass("transparent");
-      $(".descrizione").removeClass("active");
-      $(this).addClass("transparent");
-      $(this).siblings().addClass("active");
-  });
-
   // al click sul button controllo il valore dell'input con il titolo del film
   $("#find").click(function(){
     invioRicerca();
@@ -34,8 +26,6 @@ $(document).ready(function(){
   })
 })
 
-
-
 // ****************************************************************************
 // ***********************************FUNZIONI********************************
 // ***************************************************************************
@@ -46,7 +36,6 @@ $(document).ready(function(){
   function invioRicerca(){
     $(".film").remove();
     var nome = $("#inserisci").val();
-    // VARI URL e type (film o serietv)
     var urlFilm = "https://api.themoviedb.org/3/search/movie";
     var urlSerietv = "https://api.themoviedb.org/3/search/tv";
     // CONTROLLO CHE NOME ABBIA UN VALORE
@@ -70,10 +59,9 @@ $(document).ready(function(){
         query: inserimento,
         language: 'it-IT'
       },
-      success: function(films){
-        var rispostaFilm = films.results;
-        // datiFilm(rispostaFilm);
-        dati(tipo, rispostaFilm)
+      success: function(data){
+        var risposta = data.results;
+        dati(tipo, risposta)
         // IN CASO DI RITORNO DI ARRAY VUOTO
         if (rispostaFilm.length == 0) {
          alert("nessuna corrispondenza..sorry!");

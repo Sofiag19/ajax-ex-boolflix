@@ -104,10 +104,17 @@ body {
   }
 
   .anteprima {
-    display: none;
     width: 154px;
     height: 236px;
     position: relative;
+  }
+
+  .film:hover .anteprima {
+    opacity: 0.2;
+  }
+
+  .film:hover .descrizione {
+    display: block;
   }
 
     .poster {
@@ -157,13 +164,3 @@ body {
     .fa-star {
       color: yellow;
     }
-
-  .active {
-    display: block;
-    z-index: 10;
-  }
-
-  .transparent {
-    opacity: 0.2;
-    z-index: -1;
-  }
