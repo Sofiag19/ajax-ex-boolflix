@@ -68,7 +68,6 @@ $(document).ready(function(){
   function invioRicerca(dove){
     $(".film").remove();
     var nome = dove.val();
-    console.log(nome);
     var urlFilm = "https://api.themoviedb.org/3/search/movie";
     var urlSerietv = "https://api.themoviedb.org/3/search/tv";
     // CONTROLLO CHE NOME ABBIA UN VALORE

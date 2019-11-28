@@ -16,8 +16,6 @@ body {
   color: white;
 }
 
-
-
 /* wrapper */
   /* header */
   header {
@@ -159,6 +157,10 @@ body {
     height: 50px;
     padding: 20px 10px;
     font-size: 26px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 
   #logo_header_nav {
@@ -217,7 +219,7 @@ body {
   /* main */
   main {
     margin-top: 50px;
-    height: calc(100vh - 50px - 60px);
+    height: calc(100vh - 50px);
     overflow-y: auto;
   }
 
@@ -303,7 +305,6 @@ body {
       color: yellow;
     }
 
-  /* media query sotto 500px menu a tendina scompare e ricompare in basso solo con icone */
   @media all and (max-width:500px) {
 
     header {
@@ -313,6 +314,8 @@ body {
     #bottom_nav_container, #tool_under500 {
       display: block;
     }
-  }
 
-  /* TODO: impedire la ricomparsa nav visible */
+    main {
+      height: calc(100vh - 110px);
+    }
+  }
