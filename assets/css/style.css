@@ -86,12 +86,20 @@ body {
             border-style: dotted;
           }
 
+          #menu_tendina div {
+            letter-spacing: 2px;
+          }
+
           #menu_tendina div:hover {
             color: red;
           }
 
           #genere {
             list-style-type: none;
+          }
+
+          #genere li {
+            letter-spacing: 5px;
           }
 
           #genere li:hover {
@@ -139,7 +147,7 @@ body {
       align-items: center;
     }
 
-      .inserisci {
+      #inserisci, #inserisci_min {
         height: 26px;
         width: 300px;
         margin-left: 15px;

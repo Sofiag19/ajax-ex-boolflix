@@ -29,21 +29,33 @@ $(document).ready(function(){
   $(".fa-bars").click(function(){
     $("#container_menu_tendina").show();
   });
+
   // al click su x si chiude menu tendina
   $(".fa-times").click(function(){
     $("#container_menu_tendina").hide();
   })
   // al click sul button controllo il valore dell'input con il titolo del film
-  $(".find").click(function(){
-    invioRicerca();
+  $("#find").click(function(){
+    invioRicerca($("#inserisci"));
   })
 
   // init ricerca con invio
-  $(".inserisci").on('keypress',function(e) {
+  $("#inserisci").on('keypress',function(e) {
     if(e.which == 13) {
-      invioRicerca();
+      invioRicerca($("#inserisci"));
     }
   })
+
+  $("#find_min").click(function(){
+    invioRicerca($("#inserisci_min"));
+  })
+
+  $("#inserisci_min").on('keypress',function(e) {
+    if(e.which == 13) {
+      invioRicerca($("#inserisci_min"));
+    }
+  })
+
 })
 
 // ****************************************************************************
@@ -53,9 +65,10 @@ $(document).ready(function(){
   // *************************************************************************
   // ***********************FUNZIONE INVIO RICERCA****************************
   // *************************************************************************
-  function invioRicerca(){
+  function invioRicerca(dove){
     $(".film").remove();
-    var nome = $(".inserisci").val();
+    var nome = dove.val();
+    console.log(nome);
     var urlFilm = "https://api.themoviedb.org/3/search/movie";
     var urlSerietv = "https://api.themoviedb.org/3/search/tv";
     // CONTROLLO CHE NOME ABBIA UN VALORE
@@ -63,7 +76,7 @@ $(document).ready(function(){
       ricerca(urlFilm, nome, "film");
       ricerca(urlSerietv, nome, "serietv")
     }
-    $('.inserisci').val('');
+    $('#inserisci').val('');
   }
 
   // **************************************************************************
