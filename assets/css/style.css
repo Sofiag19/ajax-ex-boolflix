@@ -43,22 +43,49 @@ body {
         align-items: center;
       }
 
-        #nav_visible_sx i {
+        #nav_visible_sx > i {
           margin-right: 30px;
         }
 
+        #container_menu_tendina {
+          display: none;
+        }
+
         #menu_tendina {
-          display: block; /* DEBUG:  */
-          height: 100vh; /* DEBUG:  */
-          width: 25%; /* DEBUG:  */
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100vh;
+          width: 25%;
           min-width: 200px;
           position: absolute;
           top: 0;
           left: 0;
-          background-color: white; /* DEBUG:  */
-          color: black; /* DEBUG:  */
+          padding: 10px;
+          background-color: grey;
           font-size: 20px;
         }
+
+        .fa-times {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
+
+        .fa-times:hover {
+          color: red;
+        }
+
+        #menu_tendina i {
+          font-size: 30px;
+          margin-right: 20px;
+        }
+
+        #menu_tendina > hr {
+          width: 100%;
+          border-style: dotted;
+        }
+
 
         .logo_header img{
           color: red;
@@ -195,3 +222,5 @@ body {
     .fa-star {
       color: yellow;
     }
+
+  /* media query sotto 500px menu a tendina scompare e ricompare in basso solo con icone */

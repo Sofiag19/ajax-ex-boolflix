@@ -13,6 +13,14 @@ $(document).ready(function(){
     $("#container_nav_insivible").hide();
   })
 
+  // al click su ham si apre menu TENDINA
+  $(".fa-bars").click(function(){
+    $("#container_menu_tendina").show();
+  });
+  // al click su x si chiude menu tendina
+  $(".fa-times").click(function(){
+    $("#container_menu_tendina").hide();
+  })
   // al click sul button controllo il valore dell'input con il titolo del film
   $("#find").click(function(){
     invioRicerca();
