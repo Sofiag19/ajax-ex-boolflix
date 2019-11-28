@@ -155,7 +155,6 @@ body {
   #tool_under500 {
     display: none;
     height: 50px;
-    padding: 20px 10px;
     font-size: 26px;
     position: fixed;
     top: 0;
@@ -169,11 +168,13 @@ body {
 
   #logo_header_nav img {
     height: 55px;
+    margin-top: 5px;
   }
 
   #contenitore_intestazione_invisibile {
     display: none;
     height: 100%;
+    padding: 20px 10px;
   }
 
   #intestazione_invisibile {
@@ -316,6 +317,7 @@ body {
     }
 
     main {
-      height: calc(100vh - 110px);
+      margin-top: 70px;
+      height: calc(100vh - 130px);
     }
   }
