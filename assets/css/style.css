@@ -65,6 +65,7 @@ body {
     /* nav invisible */
     #container_nav_insivible {
       display: none;
+      height: 100%;
     }
 
     #nav_invisible {
@@ -73,10 +74,12 @@ body {
       align-items: center;
       padding: 10px 20px;
       font-size: 26px;
+      height: 100%;
     }
 
     #hide_nav_invisible {
       flex-basis: calc(100% / 3);
+      color: red;
     }
 
     #campo_ricerca {
