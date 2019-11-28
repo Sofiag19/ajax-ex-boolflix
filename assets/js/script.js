@@ -4,13 +4,13 @@ $(document).ready(function(){
   // al click del cerca faccio comparire l'imput per la ricerca
   $("#show_nav_invisible").click(function (){
     $("#nav_visible").hide();
-    $("#nav_invisible").css("visibility","visible");
+    $("#container_nav_insivible").show();
   })
 
   // al click sulla freccia faccio ricomparire la nav iniziale
   $("#hide_nav_invisible").click(function(){
     $("#nav_visible").show();
-    $("#nav_invisible").css("visibility","hidden");
+    $("#container_nav_insivible").hide();
   })
 
   // al passaggio sopra il poster faccio scomparire il poster e comparire la descrizione
@@ -47,9 +47,12 @@ $(document).ready(function(){
     $(".film").remove();
     var nome = $("#inserisci").val();
     // VARI URL e type (film o serietv)
+    var urlFilm = "https://api.themoviedb.org/3/search/movie";
+    var urlSerietv = "https://api.themoviedb.org/3/search/tv";
     // CONTROLLO CHE NOME ABBIA UN VALORE
     if (nome) {
-      ricerca(nome);
+      ricerca(urlFilm, nome, "film");
+      ricerca(urlSerietv, nome, "serietv")
     }
     $('#inserisci').val('');
   }
@@ -60,7 +63,7 @@ $(document).ready(function(){
   function ricerca(url,inserimento,tipo){
 
     $.ajax({
-      url: "https://api.themoviedb.org/3/search/movie",
+      url: url ,
       method:'GET',
       data: {
         api_key:"b7363eced32d78c930013064eab20f51",
@@ -73,28 +76,6 @@ $(document).ready(function(){
         dati(tipo, rispostaFilm)
         // IN CASO DI RITORNO DI ARRAY VUOTO
         if (rispostaFilm.length == 0) {
-         alert("nessuna corrispondenza..sorry!");
-        }
-      },
-      error: function(){
-        alert("si è verificato un errore!")
-      }
-    })
-
-    $.ajax({
-      url: "https://api.themoviedb.org/3/search/tv",
-      method:'GET',
-      data: {
-        api_key:"b7363eced32d78c930013064eab20f51",
-        query: inserimento,
-        language: 'it-IT'
-      },
-      success: function(tv){
-        var rispostaTv = tv.results;
-        // datiSerieTv(rispostaTv);
-        dati(tipo, rispostaTv)
-        // IN CASO DI RITORNO DI ARRAY VUOTO
-        if (rispostaTv.length == 0) {
          alert("nessuna corrispondenza..sorry!");
         }
       },
