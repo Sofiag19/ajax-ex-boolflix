@@ -51,52 +51,52 @@ body {
           display: none;
         }
 
-        #menu_tendina {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          height: 100vh;
-          width: 25%;
-          min-width: 200px;
-          position: absolute;
-          top: 0;
-          left: 0;
-          padding: 20px 10px;
-          background-color: grey;
-          font-size: 20px;
-        }
+          #menu_tendina {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            width: 25%;
+            min-width: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 20px 10px;
+            background-color: grey;
+            font-size: 20px;
+          }
 
-        .fa-times {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-        }
+          .fa-times {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+          }
 
-        .fa-times:hover {
-          color: red;
-        }
+          .fa-times:hover {
+            color: red;
+          }
 
-        #menu_tendina i:not(.fa-times) {
-          font-size: 30px;
-          margin-right: 20px;
-        }
+          #menu_tendina i:not(.fa-times) {
+            font-size: 30px;
+            margin-right: 20px;
+          }
 
-        #menu_tendina > hr {
-          width: 100%;
-          border-style: dotted;
-        }
+          #menu_tendina > hr {
+            width: 100%;
+            border-style: dotted;
+          }
 
-        #menu_tendina div:hover {
-          color: red;
-        }
+          #menu_tendina div:hover {
+            color: red;
+          }
 
-        #genere {
-          list-style-type: none;
-        }
+          #genere {
+            list-style-type: none;
+          }
 
-        #genere li:hover {
-          color: red;
-        }
+          #genere li:hover {
+            color: red;
+          }
 
         .logo_header img{
           color: red;
@@ -109,7 +109,7 @@ body {
         align-items: center;
       }
 
-        #show_nav_invisible {
+        #nav_visible_dx i:first-of-type {
           margin-right: 30px;
         }
 
@@ -144,6 +144,31 @@ body {
         width: 300px;
         margin-left: 15px;
       }
+
+  /* nav bottom */
+  #bottom_nav_container{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 15;
+    background-color: grey;
+    color: white;
+    font-size: 26px;
+  }
+
+  #bottom_nav{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #bottom_nav div:hover {
+    color: red;
+  }
 
   /* main */
   main {
@@ -235,3 +260,13 @@ body {
     }
 
   /* media query sotto 500px menu a tendina scompare e ricompare in basso solo con icone */
+  @media all and (max-width:500px) {
+
+    #nav_visible {
+      display: none;
+    }
+
+    #bottom_nav_container {
+      display: block;
+    }
+  }

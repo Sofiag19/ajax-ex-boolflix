@@ -2,7 +2,7 @@
 $(document).ready(function(){
 
   // al click del cerca faccio comparire l'imput per la ricerca
-  $("#show_nav_invisible").click(function (){
+  $(".show_nav_invisible").click(function (){
     $("#nav_visible").hide();
     $("#container_nav_insivible").show();
   })
