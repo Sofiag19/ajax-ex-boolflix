@@ -13,6 +13,18 @@ $(document).ready(function(){
     $("#container_nav_insivible").hide();
   })
 
+  // al click del cerca faccio comparire l'imput per la ricerca query 500
+  $("#bottom_search i").click(function (){
+    $("#intestazione").hide();
+    $("#contenitore_intestazione_invisibile").show();
+  })
+
+  // al click sulla freccia faccio ricomparire la nav iniziale query 500
+  $("#hide_intestazione_invisible").click(function(){
+    $("#intestazione").show();
+    $("#contenitore_intestazione_invisibile").hide();
+  })
+
   // al click su ham si apre menu TENDINA
   $(".fa-bars").click(function(){
     $("#container_menu_tendina").show();
@@ -22,12 +34,12 @@ $(document).ready(function(){
     $("#container_menu_tendina").hide();
   })
   // al click sul button controllo il valore dell'input con il titolo del film
-  $("#find").click(function(){
+  $(".find").click(function(){
     invioRicerca();
   })
 
   // init ricerca con invio
-  $("#inserisci").on('keypress',function(e) {
+  $(".inserisci").on('keypress',function(e) {
     if(e.which == 13) {
       invioRicerca();
     }
@@ -43,7 +55,7 @@ $(document).ready(function(){
   // *************************************************************************
   function invioRicerca(){
     $(".film").remove();
-    var nome = $("#inserisci").val();
+    var nome = $(".inserisci").val();
     var urlFilm = "https://api.themoviedb.org/3/search/movie";
     var urlSerietv = "https://api.themoviedb.org/3/search/tv";
     // CONTROLLO CHE NOME ABBIA UN VALORE
@@ -51,7 +63,7 @@ $(document).ready(function(){
       ricerca(urlFilm, nome, "film");
       ricerca(urlSerietv, nome, "serietv")
     }
-    $('#inserisci').val('');
+    $('.inserisci').val('');
   }
 
   // **************************************************************************

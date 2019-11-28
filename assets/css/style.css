@@ -139,13 +139,19 @@ body {
       align-items: center;
     }
 
-      #inserisci {
+      .inserisci {
         height: 26px;
         width: 300px;
         margin-left: 15px;
       }
 
   /* nav bottom */
+  #tool_under500 {
+    display: none;
+    height: 60px;
+    padding: 20px 10px;
+    font-size: 26px;
+  }
 
   #logo_header_nav {
     text-align: center;
@@ -154,7 +160,28 @@ body {
   #logo_header_nav img {
     height: 55px;
   }
-  
+
+  #contenitore_intestazione_invisibile {
+    display: none;
+    height: 100%;
+  }
+
+  #intestazione_invisibile {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  #hide_intestazione_invisible {
+    flex-basis: calc(100% / 3);
+    color: red;
+  }
+
+  #campo_ricerca_intestazione {
+    flex-basis: calc(100% / 3);
+    display: flex;
+  }
+
   #bottom_nav_container{
     display: none;
     position: fixed;
@@ -271,11 +298,11 @@ body {
   /* media query sotto 500px menu a tendina scompare e ricompare in basso solo con icone */
   @media all and (max-width:500px) {
 
-    #nav_visible {
+    header {
       display: none;
     }
 
-    #bottom_nav_container {
+    #bottom_nav_container, #tool_under500 {
       display: block;
     }
   }
