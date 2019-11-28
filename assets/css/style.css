@@ -47,7 +47,20 @@ body {
           margin-right: 30px;
         }
 
-        #logo_header img{
+        #menu_tendina {
+          display: block; /* DEBUG:  */
+          height: 100vh; /* DEBUG:  */
+          width: 25%; /* DEBUG:  */
+          min-width: 200px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: white; /* DEBUG:  */
+          color: black; /* DEBUG:  */
+          font-size: 20px;
+        }
+
+        .logo_header img{
           color: red;
           width: 130px;
         }
