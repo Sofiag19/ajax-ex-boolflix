@@ -74,9 +74,11 @@ $(document).ready(function(){
     var urlFilm = "https://api.themoviedb.org/3/search/movie";
     var urlSerietv = "https://api.themoviedb.org/3/search/tv";
     // CONTROLLO CHE NOME ABBIA UN VALORE
+    var doveFilm = $("#lista_film");
+    var doveSerieTv = $("#lista_serietv");
     if (nome) {
-      ricerca(urlFilm, nome, "film");
-      ricerca(urlSerietv, nome, "serietv")
+      ricerca(urlFilm, nome, "film",doveFilm);
+      ricerca(urlSerietv, nome, "serietv",doveSerieTv);
     }
     dove.val('');
   }
@@ -84,7 +86,7 @@ $(document).ready(function(){
   // **************************************************************************
   // ***************FUNZIONE PER LA CHIAMATA E RICERCA ELEMENTI***************
   // *************************************************************************
-  function ricerca(url,inserimento,tipo){
+  function ricerca(url,inserimento,tipo,where){
 
     $.ajax({
       url: url ,
@@ -96,7 +98,7 @@ $(document).ready(function(){
       },
       success: function(data){
         var risposta = data.results;
-        dati(tipo, risposta)
+        dati(tipo, risposta, where)
         // IN CASO DI RITORNO DI ARRAY VUOTO
         if (risposta.length == 0) {
          alert("nessuna corrispondenza..sorry!");
@@ -111,7 +113,7 @@ $(document).ready(function(){
   // **************************************************************************
   // ********FUNZIONE PER LA STAMPA DEI DATI DEI FILM O SERIE TV*************
   // **************************************************************************
-  function dati(tipo, elenco){
+  function dati(tipo, elenco, where){
     var copiaTempl = $("#hb-film").html();
     var templReady = Handlebars.compile(copiaTempl);
     for (var i = 0; i < elenco.length; i++) {
@@ -135,7 +137,7 @@ $(document).ready(function(){
           overview: elenco[i].overview
       };
       var createEl = templReady(createObj);
-      $("#lista_film").append(createEl);
+      where.append(createEl);
     }
   }
 
