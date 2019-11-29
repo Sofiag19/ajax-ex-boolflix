@@ -87,13 +87,12 @@ $(document).ready(function(){
 
   // funzione per la ricerca con genere
   function ricGenere(numgen){
-    var urlFilmGen = "https://api.themoviedb.org/3/discover/movie?with_genres="+numgen+"&sort_by=popularity.desc";
-    console.log(urlFilmGen);
-    var urlSerietvGen = "https://api.themoviedb.org/3/discover/tv?with_genres="+numgen+"&sort_by=popularity.desc";
+    var urlFilmGen = "https://api.themoviedb.org/3/discover/movie";
+    var urlSerietvGen = "https://api.themoviedb.org/3/discover/tv";
     var doveFilm = $("#lista_film");
     var doveSerieTv = $("#lista_serietv");
-    ricercaPrimaPag(urlFilmGen,"film",doveFilm);
-    ricercaPrimaPag(urlSerietvGen,"serietv",doveSerieTv);
+    ricercaGenere (urlFilmGen,"film",doveFilm,numgen);
+    ricercaGenere (urlSerietvGen,"serietv",doveSerieTv,numgen);
   }
   // *************************************************************************
   // ***********************FUNZIONE INVIO RICERCA****************************
@@ -165,6 +164,32 @@ $(document).ready(function(){
       }
     })
   }
+
+// funzione ricerca per genere
+function ricercaGenere (url,tipo,where,numgen){
+  $.ajax({
+    url: url ,
+    method:'GET',
+    data: {
+      api_key:"b7363eced32d78c930013064eab20f51",
+      with_genres: numgen,
+      language: 'it-IT'
+    },
+    success: function(data){
+      console.log(data);
+      var risposta = data.results;
+      dati(tipo, risposta, where)
+      // IN CASO DI RITORNO DI ARRAY VUOTO
+      if (risposta.length == 0) {
+       alert("nessuna corrispondenza..sorry!");
+      }
+    },
+    error: function(){
+      alert("si è verificato un errore!")
+    }
+  })
+}
+
 
   // **************************************************************************
   // ********FUNZIONE PER LA STAMPA DEI DATI DEI FILM O SERIE TV*************
