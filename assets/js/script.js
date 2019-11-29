@@ -61,6 +61,12 @@ $(document).ready(function(){
     }
   })
 
+  // al click su un genere compaiono film e serie tv di quel genere
+  $("#genere li").click(function(){
+    var numGenere = $(this).attr("num-genre");
+    console.log(numGenere);
+    ricGenere(numGenere);
+  })
 })
 
 // ****************************************************************************
@@ -76,9 +82,19 @@ $(document).ready(function(){
     var doveFilm = $("#lista_film");
     var doveSerieTv = $("#lista_serietv");
     ricercaPrimaPag(urlFilm2019,"film",doveFilm);
-    ricercaPrimaPag(urlSerietv2019,"film",doveSerieTv);
+    ricercaPrimaPag(urlSerietv2019,"serietv",doveSerieTv);
   }
 
+  // funzione per la ricerca con genere
+  function ricGenere(numgen){
+    var urlFilmGen = "https://api.themoviedb.org/3/discover/movie?with_genres="+numgen+"&sort_by=popularity.desc";
+    console.log(urlFilmGen);
+    var urlSerietvGen = "https://api.themoviedb.org/3/discover/tv?with_genres="+numgen+"&sort_by=popularity.desc";
+    var doveFilm = $("#lista_film");
+    var doveSerieTv = $("#lista_serietv");
+    ricercaPrimaPag(urlFilmGen,"film",doveFilm);
+    ricercaPrimaPag(urlSerietvGen,"serietv",doveSerieTv);
+  }
   // *************************************************************************
   // ***********************FUNZIONE INVIO RICERCA****************************
   // *************************************************************************
