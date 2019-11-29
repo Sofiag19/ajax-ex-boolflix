@@ -1,5 +1,7 @@
 
 $(document).ready(function(){
+  // all'apertura della pagina compaiono i film del 2019
+  firstResearch()
 
   // al click del cerca faccio comparire l'imput per la ricerca
   $(".show_nav_invisible").click(function (){
@@ -66,6 +68,18 @@ $(document).ready(function(){
 // ***************************************************************************
 
   // *************************************************************************
+  // ************FUNZIONE PER LA PRIMA RICERCA*******************************
+  // ************************************************************************
+  function firstResearch(){
+    var urlFilm2019 = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc";
+    var urlSerietv2019 = "https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc";
+    var doveFilm = $("#lista_film");
+    var doveSerieTv = $("#lista_serietv");
+    ricercaPrimaPag(urlFilm2019,"film",doveFilm);
+    ricercaPrimaPag(urlSerietv2019,"film",doveSerieTv);
+  }
+
+  // *************************************************************************
   // ***********************FUNZIONE INVIO RICERCA****************************
   // *************************************************************************
   function invioRicerca(dove){
@@ -94,6 +108,32 @@ $(document).ready(function(){
       data: {
         api_key:"b7363eced32d78c930013064eab20f51",
         query: inserimento,
+        language: 'it-IT'
+      },
+      success: function(data){
+        var risposta = data.results;
+        dati(tipo, risposta, where)
+        // IN CASO DI RITORNO DI ARRAY VUOTO
+        if (risposta.length == 0) {
+         alert("nessuna corrispondenza..sorry!");
+        }
+      },
+      error: function(){
+        alert("si è verificato un errore!")
+      }
+    })
+  }
+
+  // *********************************************************************
+  // ***********FUNZIONE PER LA RICERCA SENZA INPUT**********************
+  // *********************************************************************
+  function ricercaPrimaPag(url,tipo,where){
+
+    $.ajax({
+      url: url ,
+      method:'GET',
+      data: {
+        api_key:"b7363eced32d78c930013064eab20f51",
         language: 'it-IT'
       },
       success: function(data){
